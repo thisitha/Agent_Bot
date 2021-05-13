@@ -87,7 +87,7 @@ myChatModel.add(Dense(len(labels), activation='softmax'))
 myChatModel.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 # train the model
-myChatModel.fit(training, output, epochs=1000, batch_size=8)
+myChatModel.fit(training, output, epochs=500, batch_size=8)
 
 # serialize model to yaml and save it to disk
 model_yaml = myChatModel.to_yaml()
