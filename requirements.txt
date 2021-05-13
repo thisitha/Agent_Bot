@@ -62,7 +62,6 @@ tflearn==0.5.0
 toml==0.10.2
 tornado==6.1
 tqdm==4.56.0
-traitlets==5.0.5
 typing-extensions==3.7.4.3
 urllib3==1.26.3
 wcwidth==0.2.5
