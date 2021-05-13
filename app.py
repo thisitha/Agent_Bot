@@ -5,10 +5,7 @@ from main import chatWithBot
 app = Flask(__name__)
 
 
-@app.route('/chat', methods=['GET', 'POST'])
-def chatBot():
-    chatInput = request.form['chatInput']
-    return jsonify(chatBotReply=chatWithBot(chatInput))
+
 
 
 @app.route('/')
