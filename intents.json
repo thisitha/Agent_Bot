@@ -1,34 +1,136 @@
 {"intents": [
         {"tag": "greeting",
-         "patterns": ["hi", "Hello"],
+         "patterns": ["hi", "Hello","Hello there","Hey"],
          "responses": ["hi good to see you", "hey,how are you?", "hey dude...", "It's nice to see you" , "It's a pleasure to meet you."],
          "context_set": ""
+        },
+        {"tag": "name",
+                "patterns": ["what is your name?","what should I call you?","who are you?"],
+                "responses": ["I'm MOODBOT","Hey!I'm MOODBOT"],
+                "context": [""]
+        },
+        {"tag": "about",
+                "patterns": ["how you doing?","how are you"],
+                "responses": ["Thanks For Asking!How can I help you?"],
+                "context": [""]
+        },
+        {"tag": "mental_health_advices",
+                "patterns": ["I want to get mental health advices", "what are the mental health advices","give me some mental health advices"],
+                "responses": ["I can help you First I want to know your age..., are you child, teenager, adult ?", "First I want to know your age. are you child, teenager, adult ?", "ok dude...to get mental health advices First I want to know your age.are you child, teenager, adult ?"],
+                "context_set": ""
+        },
+        {"tag": "child",
+                "patterns": ["I'm a child","child","CHILD"],
+                "responses": ["being in good physical health, eating a balanced diet, getting regular exercise, having time to play, indoors and outdoors.",
+                "Take care of your body, Have some fun together with family or friends, Enjoy the great outdoors,Help others or volunteer in your community."],
+                "context_set": ""
+        },
+        {"tag": "teenage",
+                "patterns": ["I'm a teenager","teen","TEENAGER","TEEN","teenager"],
+                "responses": ["Get Plenty of Sleep. Getting enough good quality sleep is important for mental health,Build Healthy Relationships with Others,Eat a Healthy Diet,Learn to Relax,Avoid Alcohol and Other Drugs.",
+                        "Exercise and eat regularly,Get enough sleep and have a good sleep routine,  Avoid excess caffeine which can increase feelings of anxiety and agitation, Avoid illegal drugs, alcohol, and tobacco."],
+                "context_set": ""
+        },
+        {"tag": "adult",
+                "patterns": ["I'm a adult","adult","ADULT"],
+                "responses": ["Get plenty of sleep, Eat well, Avoid alcohol, smoking and drugs, Get plenty of sunlight, Manage stress, Activity and exercise, Do something you enjoy,Connect with others and be sociable."],
+                "context_set": ""
+        },
+        {"tag": "foods",
+                "patterns": ["What foods improve mental health?","what food do I get for mental health","good foods for mental health","healthy foods for mental health"],
+                "responses": ["To boost your mental health, focus on eating plenty of fruits and vegetables along with foods rich in omega-3 fatty acids, such as salmon. Dark green leafy vegetables in particular are brain protective. Nuts, seeds and legumes, such as beans and lentils, are also excellent brain foods.",
+                "Salmon,Chicken,Whole Grains, Avocados, Spinach,Yogurt, Nuts, Olive Oil.","Fatty Fish, Nuts and Seeds, Whole Eggs, Berries, Leafy Greens, Greek Yogurt, Chicken, Probiotic + Prebiotic Sources.",
+                "Green, leafy vegetables. Leafy greens such as kale, spinach, collards, and broccoli, lutein, folate, and beta carotene, Fatty fish., Berries., Tea and coffee., Walnuts."],
+                "context_set": ""
+        },
+        {"tag": "mental_health_exercises",
+                "patterns": ["I want to know about exercises for mental health","menatal health imporovement exercises","exercises for mental health"],
+                "responses": ["Take Deep and Conscious Breaths, Meditate at Your work, Stand and Stretch, Engage with Others, Listen to Music, Take a Moment to Laugh, Make Your Goals Realistic.",
+                "Running (or walking), Boxing, Pilates,Yoga, Spin classes, Resistance training."],
+                "context_set": ""
+        },
+        {"tag": "hobbies",
+                "patterns": ["what are the hobbies I can do for maintain my mental health?", "What hobbies are good for mental health?"],
+                "responses": ["hiking,playing music,photography,Gardening","song writing, knitting, visual art and musical performance.","Listening to music. Listening to music for at least a half hour each day can lower your blood pressure, slow your heart rate, and calm anxiety and stress,  ​Dancing, Knitting, Shopping, Walking, Watching "],
+                "context_set": ""
+        },
+        {"tag": "sleeping_timetable",
+                "patterns": ["I want to know sleep hours for my age","sleep time tabe","sleep time schedule","how long I get sleep"],
+                "responses": ["School-age (6-13) years old --9-11 hours, Teen(14-17)  years old --8-10 hours, Young Adult(18-25 )years old--7-9 hours, Adult(26-64 )years old -- 7-9 hours, Older Adult(65 or more) years old -- 7-8 hours"],
+                "context_set": ""
+        },
+        {"tag": "avoid_drugs",
+                "patterns": ["How do I stop drugs","what shoud I do for avoid drugs","how I stop use drugs","How do I stop alohol","what shoud I do for avoid alohol","how I stop use alohol"],
+                "responses": ["avoiding places where you know drugs and alcohol will be available, surrounding yourself with friends who don’t use drugs, knowing how to resist temptation, learning how to cope with stress and relax without drugs, distracting yourself with activities like exercise or listening to music"],
+                "context_set": ""
+        },
+        {"tag": "manage_stress",
+                "patterns": ["How do I manage stress","what shoud I do for manage stress","how I manage stress","what should I do for reduce stress","how I reduce stress","how I reduce stress"],
+                "responses": ["Exercise, Relax Your Muscles, Deep Breathing, Eat Well, Take a Break, Make Time for Hobbies, Talk About Your Problems with your ones, Go Easy On Yourself, Eliminate Your Triggers"],
+                "context_set": ""
+        },
+        {"tag": "mental_illness",
+                "patterns": ["What does it mean to have a mental illness?","what is mental illness","mental illness means?"],
+                "responses": ["Mental illnesses are health conditions that disrupt a person thoughts, emotions, relationships, and daily functioning. They are associated with distress and diminished capacity to engage in the ordinary activities of daily life.Mental illnesses fall along a continuum of severity: some are fairly mild and only interfere with some aspects of life, such as certain phobias. On the other end of the spectrum lie serious mental illnesses, which result in major functional impairment and interference with daily life. These include such disorders as major depression, schizophrenia, and bipolar disorder, and may require that the person receives care in a hospital. It is important to know that mental illnesses are medical conditions that have nothing to do with a person character, intelligence, or willpower. Just as diabetes is a disorder of the pancreas, mental illness is a medical condition due to the brain biology.Similarly to how one would treat diabetes with medication and insulin, mental illness is treatable with a combination of medication and social support. These treatments are highly effective, with 70-90 percent of individuals receiving treatment experiencing a reduction in symptoms and an improved quality of life. With the proper treatment, it is very possible for a person with mental illness to be independent and successful."],
+                "context": [""]
+        },
+        {"tag": "mental_illness_warning signs",
+                "patterns": ["What are the warning signs of mental illness?","mental illness warning signs"],
+                "responses": ["eating disorders tend to occur more often in females, while disorders such as attention deficit/hyperactivity disorder is more prevalent in children. Additionally, all ages are susceptible, but the young and the old are especially vulnerable. Mental illnesses usually strike individuals in the prime of their lives, with 75 percent of mental health conditions developing by the age of 24. This makes identification and treatment of mental disorders particularly difficult, because the normal personality and behavioral changes of adolescence may mask symptoms of a mental health condition. Parents and caretakers should be aware of this fact, and take notice of changes in their childâ€™s mood, personality, personal habits, and social withdrawal. When these occur in children under 18, they are referred to as serious emotional disturbances (SEDs)."],
+                "context": [""]
+        },
+        {"tag": "sad",
+                "patterns": ["I feel sad", "I'm sad"],
+                "responses": ["don't worry...let's talk about it", "don't warry..., let's talk", "don' worry, how can I help?"],
+                "context_set": ""
+        },
+        {"tag": "solutions_for_sad",
+                "patterns": ["What should I do when I sad?","What are the things" , "what I can do when I feel sad to fix my mood?","solutions for sadness"],
+                "responses": ["Notice how you feel and why. Knowing your emotions helps you understand and accept yourself, Bounce back from disappointments or failures. When things don't go your way, don't give up!, Think positive, Think of solutions, Get support, Put yourself in a good mood."],
+                "context_set": ""
+        },
+        {"tag": "anger",
+                "patterns": ["I feel angry", "I'm angry","what should I do when I'm in anger?","How do I reduce anger?"],
+                "responses": ["Tell yourself to calm down, Force yourself to leave the situation, Use visualization to calm down, Count to 10 (or 50… or 100) if you feel like you're about to do or say something harmful, Splash some cold water on your face, Slow down and focus on your breathing.",
+                "Think before you speak... In the heat of the moment, it's easy to say something you'll later regret Once you're calm, express your anger, Take a timeout, Identify possible solutions, Stick with 'I' statements, Don't hold a grudge, Use humor to release tension."],
+                "context_set": ""
+        },
+        {"tag": "fear",
+                "patterns": ["I feel fear", "I'm fear","what should I do when I'm in fear?","How do I reduce fear?"],
+                "responses": ["Take time out. It's impossible to think clearly when you're flooded with fear or anxiety, Breathe through panic. If you start to get a faster heartbeat or sweating palms, the best thing is not to fight it,Look at the evidence, Don't try to be perfect,Visualise a happy place,Talk about it with someone.",
+                "Breathe: deep breaths help the body to get back under control, Walk: make good use of adrenaline if you're about to approach something frightening, Write it down or speak it out: this helps stop the fear from circling around (and around) your brain."],
+                "context": [""]
+        },
+        {"tag": "physical_signs_of_depressed_men",
+                "patterns": ["What are the physical signs of depressed men?","I want to know about physical signs of depressed men."],
+                "responses": ["chest tightness,digestive problems like gas, diarrhea, and constipation , headaches, hormonal issues like low testosterone, pain, racing heart, or heart palpitations, unintended weight loss (and sometimes weight gain),inability to concentrate,memory problems,obsessive-compulsive thought patterns,racing thoughts,sleep issues, usually difficulty falling asleep or staying asleep,suicidal thoughts,aggression,anger,emotional withdrawal from friends, family, and colleagues,hopelessness,lack of interest in family, community, hobbies, and work,lack of libido,restlessness,difficulty meeting work, family, and other personal responsibilities,drug misuse,drinking alcohol in excess,engaging in risky activities, such as driving recklessly or having unprotected sex,social isolation"],
+                "context_set": ""
+        },
+        {"tag": "treatment_options_for_depression",
+                "patterns": ["what are the current treatment options for depression?","I want to know about treatment options for depression"],
+                "responses": ["cognitive behavioral therapy , interpersonal therapy , problem-solving therapy , psychodynamic therapy , Stanford Accelerated Intelligent Neuromodulation Therapy"],
+                "context_set": ""
+        },
+        {"tag": "thanks",
+                "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
+                "responses": ["Happy to help!", "Any time!", "My pleasure"],
+                "context": [""]
         },
         {"tag": "goodbye",
          "patterns": ["See you later", "Goodbye", "I am Leaving", "Have a Good day"],
          "responses": ["Sad to see you go :(", "Talk to you later", "Goodbye!","Good Bye,see you soon :)"],
          "context_set": ""
         },
-        {"tag": "depressed",
-         "patterns": ["I feel depressed.....", "I suffer from depression"],
-         "responses": ["Avoid spending long periods of time alone", "Take care of your self.pamper yourself", "hey dude...", "It's nice to see you" , "It's a pleasure to meet you."],
-         "context_set": ""
+        {"tag": "invalid",
+                "patterns": ["Marry me","I love You","date me","chat with me","I am bored"],
+                "responses": ["Please ask relevant questions for your mental health."],
+                "context": [""]
         },
-        {"tag": "sad",
-         "patterns": ["I feel sad", "I'm sad","MoodBot says my mood type is sad"],
-         "responses": ["don't worry...let's talk about it", "Good to see you, let's talk", "Hi there, how can I help?"],
-         "context_set": ""
-        },
-
-        {"tag": "physical_signs_of_depressed_men",
-         "patterns": ["What are the physical signs of depressed men?","I want to know about physical signs of depressed men."],
-         "responses": ["chest tightness,digestive problems like gas, diarrhea, and constipation , headaches, hormonal issues like low testosterone, pain, racing heart, or heart palpitations, unintended weight loss (and sometimes weight gain),inability to concentrate,memory problems,obsessive-compulsive thought patterns,racing thoughts,sleep issues, usually difficulty falling asleep or staying asleep,suicidal thoughts,aggression,anger,emotional withdrawal from friends, family, and colleagues,hopelessness,lack of interest in family, community, hobbies, and work,lack of libido,restlessness,difficulty meeting work, family, and other personal responsibilities,drug misuse,drinking alcohol in excess,engaging in risky activities, such as driving recklessly or having unprotected sex,social isolation"],
-         "context_set": ""
-        },
-        {"tag": "treatment_options_for_depression",
-         "patterns": ["what are the current treatment options for depression?","I want to know about treatment options for depression"],
-         "responses": ["cognitive behavioral therapy , interpersonal therapy , problem-solving therapy , psychodynamic therapy , Stanford Accelerated Intelligent Neuromodulation Therapy"],
-         "context_set": ""
+        {"tag": "noans",
+                "patterns": ["why","how","when","I","you",""],
+                "responses": ["Can't Understand Your Question","please elaborate your question"],
+                "context": [""]
         }
+        
    ]
 }
