@@ -1,7 +1,6 @@
 import json
 import pickle
 import random
-
 import nltk
 import numpy
 from nltk.stem import LancasterStemmer
@@ -23,7 +22,9 @@ with open("intents.json") as file:
 #except:
 words = []
 labels = []
+#list of all of different patterns
 docs_x = []
+#list of tags
 docs_y = []
 
 for intent in data["intents"]:
@@ -36,9 +37,11 @@ for intent in data["intents"]:
     if intent["tag"] not in labels:
         labels.append(intent["tag"])
 
+#
 words = [stemmer.stem(w.lower()) for w in words if w != "?"]
 words = sorted(list(set(words)))
 
+#for sort lables
 labels = sorted(labels)
 
 training = []
