@@ -54,11 +54,76 @@
     },
 
     {
-      "tag": "noans",
-      "patterns": [ "why", "how", "when", "I", "you", "" ],
-      "responses": [ "Can't Understand Your Question", "please elaborate your question" ],
+      "tag": "Endowment_Plan",
+      "patterns": [ "Endowment Plan", "What Is Endowment Plan", "Benifits Of Endowment Plan" ],
+      "responses": [
+        "Endowment Plan offers living benefit as well as death benefit where the sum assured is increased by 2.5% every year to accommodate inflation. Although the sum assured increased, the original premium will remain the same.",
+        "Accidental Death Benefit, Total & Permanent Disability Benefit, Partial & Permanent Disability Benefit, Critical Illness Benefit, Funeral Expenses Benefit, Family Income Benefit, Spouse Cover Benefit, Critical Illness Benefit on the Life of Spouse, Child Critical Illness Benefit, Waiver of Premium Benefit, Hospitalization per Day Benefit, Health Care Benefit,"
+      ],
+      "context": [ "" ]
+    },
+    {
+      "tag": "Retirement",
+      "patterns": [ "Retirement Plan", "What Is Retirement Plan", "Benifits Of Retirement Plan" ],
+      "responses": [
+        "Retirement Plan is designed to enjoy the monthly pension while protecting the dependents of the policy holder. Monthly pension will be paid for a fixed period of 10 , 15 or 20 years as decided by the customer.For an untimely death taking place during the premium payment period death benefit will be paid to the nominee. Also on death or total permanent disability of the policy holder company will pay the future premium on behalf of the policyholder till the end of the premium paying term and retirement benefits will be paid from the retirement date as selected from the nominee",
+        "Critical Illness Benefit, Hospitalization per Day Benefit, Health Care Benefit, Super Health Care Benefit are the benifits"
+      ],
+      "context": [ "" ]
+    },
+    {
+      "tag": "Investment",
+      "patterns": [ "Investment Plan", "What Is Investment Plan", "Benifits Of Investment Plan" ],
+      "responses": [
+        " Investment Plan is designed to protect the policyholder while enjoying the attractive returns as a Living Benefit. The rate of return is decided on every year.In the event of Death of the policy holder basic Sum Assured or the Customers fund balance whichever is high will be payable, The policyholder can decide the frequency of premium payments. (i.e. monthly, quarterly, biannually or annually). Additionally, the following Living Benefits can be attached to this Plan;",
+        "Accidental Death Benefit, Total & Permanent Disability Benefit, Partial & Permanent Disability Benefit, Critical Illness Benefit, Additional Term Protection Benefit, Funeral Expenses Benefit, Family Income Benefit, Spouse Cover Benefit, Waiver of Premium Benefit, Hospitalization per Day Benefit, Health Care Benefit, Super Health Care Benefit"
+      ],
+      "context": [ "" ]
+    },
+    {
+      "tag": "Super_Investment",
+      "patterns": [ "Super Investment Plan", "What Is Super Investment Plan", "Benifits Of Super Investment Plan", "What is the investment Bond", "Investment Bond", "Benifits of investment Bonds" ],
+      "responses": [
+        "Super Investment Plan is designed to protect the policyholder while enjoying the attractive returns as a Living Benefit. The rate of return is decided on every year.In the event of Death of the policy holder basic Sum Assured or the Customers fund balance whichever is high will be payable, The policyholder can decide the frequency of premium payments. (i.e. monthly, quarterly, biannually or annually). Additionally, the following Living Benefits can be attached to this Plan;",
+        "Accidental Death Benefit, Total & Permanent Disability Benefit, Partial & Permanent Disability Benefit, Critical Illness Benefit, Additional Term Protection Benefit, Funeral Expenses Benefit, Family Income Benefit, Spouse Cover Benefit, Waiver of Premium Benefit, Hospitalization per Day Benefit, Health Care Benefit, Super Health Care Benefit"
+      ],
+      "context": [ "" ]
+    },
+    {
+      "tag": "schoolFees",
+      "patterns": [ "School Fees Plan", "What Is the School Fees Plan", "Benifits Of School Fees Plan" ],
+      "responses": [
+        "Schools fees plan is designed to to parents who are working on risky jobs and the benifits cover a full lift time school fees of the child"
+      ],
+      "context": [ "" ]
+    },
+    {
+      "tag": "investment_plus",
+      "patterns": [ "Investment Plus Plan", "What Is Investment Plus Plan ", "Benifits Of Investment Plus Plan" ],
+      "responses": [
+        " Investment Plus Plan is designed to allow the policyholder for greater investment benefits by providing attractive returns as a living benefit. The rate of return is decided on every year and the frequency of premium payments could be decided by the policyholder as monthly, quarterly, half yearly, annually or single. The return on investment could be utilized for future investments, higher education, business purposes, or dowry of a child."
+      ],
+      "context": [ "" ]
+    },
+    {
+      "tag": "relief_plan",
+      "patterns": [ "Relif Plan", "What Is Relif Plan", "Benifits Of Relif Plan" ],
+      "responses": [
+        "Arpico Relief plan is designed to meet the protection needs if you and your loved ones which will relieve you from the conventional premium payments while providing the benefits throughout the original term of the policy.;",
+        "Accidental Death Benefit, Total & Permanent Disability Benefit, Partial & Permanent Disability Benefit, Additional term protection benefit, Critical Illness Benefit, Funeral Expenses Benefit, Family Income Benefit, Hospitalization per Day Benefit, Health Care Benefit, Super Health Care Benefit, Waiver of premium benefit, Spouse cover benefit"
+      ],
+      "context": [ "" ]
+    },
+    {
+      "tag": "trust_plan",
+      "patterns": [ "Trust Plan", "What Is Trust Plan", "Benifits Of Trust Plan" ],
+      "responses": [
+        "Arpico Trust plan is designed to meet the protection needs if you and your loved ones which will relieve you from the conventional One time payment, while providing the benefits throughout the original term of the policy.;",
+        "Accidental Death Benefit, Total & Permanent Disability Benefit, Partial & Permanent Disability Benefit, Additional term protection benefit, Critical Illness Benefit, Funeral Expenses Benefit, Family Income Benefit, Hospitalization per Day Benefit, Health Care Benefit, Super Health Care Benefit, Waiver of premium benefit, Spouse cover benefit"
+      ],
       "context": [ "" ]
     }
+
 
 
   ]

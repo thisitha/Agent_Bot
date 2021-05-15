@@ -1,7 +1,6 @@
 import json
 import pickle
 import random
-
 import nltk
 import numpy
 from nltk.stem import LancasterStemmer
@@ -16,87 +15,91 @@ stemmer = LancasterStemmer()
 with open("intents.json") as file:
     data = json.load(file)
 
-try:
-    with open("chatbot.pickle", "rb") as file:
-        words, labels, training, output = pickle.load(file)
+#try:#
+    #with open("chatbot.pickle", "rb") as file:
+        #words, labels, training, output = pickle.load(file)
 
-except:
-    words = []
-    labels = []
-    docs_x = []
-    docs_y = []
+#except:
+words = []
+labels = []
+#list of all of different patterns
+docs_x = []
+#list of tags
+docs_y = []
 
-    for intent in data["intents"]:
-        for pattern in intent["patterns"]:
-            wrds = nltk.word_tokenize(pattern)
-            words.extend(wrds)
-            docs_x.append(wrds)
-            docs_y.append(intent["tag"])
+for intent in data["intents"]:
+    for pattern in intent["patterns"]:
+        wrds = nltk.word_tokenize(pattern)
+        words.extend(wrds)
+        docs_x.append(wrds)
+        docs_y.append(intent["tag"])
 
-        if intent["tag"] not in labels:
-            labels.append(intent["tag"])
+    if intent["tag"] not in labels:
+        labels.append(intent["tag"])
 
-    words = [stemmer.stem(w.lower()) for w in words if w != "?"]
-    words = sorted(list(set(words)))
+#
+words = [stemmer.stem(w.lower()) for w in words if w != "?"]
+words = sorted(list(set(words)))
 
-    labels = sorted(labels)
+#for sort lables
+labels = sorted(labels)
 
-    training = []
-    output = []
+training = []
+output = []
 
-    output_empty = [0 for _ in range(len(labels))]
+output_empty = [0 for _ in range(len(labels))]
 
-    for x, doc in enumerate(docs_x):
-        bag = []
+for x, doc in enumerate(docs_x):
+    bag = []
 
-        wrds = [stemmer.stem(w.lower()) for w in doc]
+    wrds = [stemmer.stem(w.lower()) for w in doc]
 
-        for w in words:
-            if w in wrds:
-                bag.append(1)
-            else:
-                bag.append(0)
+    for w in words:
+        if w in wrds:
+            bag.append(1)
+        else:
+            bag.append(0)
 
-        output_row = output_empty[:]
-        output_row[labels.index(docs_y[x])] = 1
+    output_row = output_empty[:]
+    output_row[labels.index(docs_y[x])] = 1
 
-        training.append(bag)
-        output.append(output_row)
+    training.append(bag)
+    output.append(output_row)
 
-    training = numpy.array(training)
-    output = numpy.array(output)
+training = numpy.array(training)
+output = numpy.array(output)
 
-    with open("chatbot.pickle", "wb") as file:
-        pickle.dump((words, labels, training, output), file)
+with open("chatbot.pickle", "wb") as file:
+    pickle.dump((words, labels, training, output), file)
 
-try:
-    yaml_file = open('chatbotmodel.yaml', 'r')
-    loaded_model_yaml = yaml_file.read()
-    yaml_file.close()
-    myChatModel = model_from_yaml(loaded_model_yaml)
-    myChatModel.load_weights("chatbotmodel.h5")
-    print("Loaded model from disk")
 
-except:
-    # Make our neural network
-    myChatModel = Sequential()
-    myChatModel.add(Dense(8, input_shape=[len(words)], activation='relu'))
-    myChatModel.add(Dense(len(labels), activation='softmax'))
+yaml_file = open('chatbotmodel.yaml', 'r')
+loaded_model_yaml = yaml_file.read()
+yaml_file.close()
+myChatModel = model_from_yaml(loaded_model_yaml)
+myChatModel.load_weights("chatbotmodel.h5")
+print("Loaded model from disk")
 
-    # optimize the model
-    myChatModel.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-    # train the model
-    myChatModel.fit(training, output, epochs=6000, batch_size=8)
+# Make our neural network
+myChatModel = Sequential()
+myChatModel.add(Dense(8, input_shape=[len(words)], activation='relu'))
+myChatModel.add(Dense(len(labels), activation='softmax'))
 
-    # serialize model to yaml and save it to disk
-    model_yaml = myChatModel.to_yaml()
-    with open("chatbotmodel.yaml", "w") as y_file:
-        y_file.write(model_yaml)
+# optimize the model
+myChatModel.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-    # serialize weights to HDF5
-    myChatModel.save_weights("chatbotmodel.h5")
-    print("Saved model from disk")
+# train the model
+myChatModel.fit(training, output, epochs=6000, batch_size=8)
+
+# serialize model to yaml and save it to disk
+model_yaml = myChatModel.to_yaml()
+with open("chatbotmodel.yaml", "w") as y_file:
+    y_file.write(model_yaml)
+
+# serialize weights to HDF5
+myChatModel.save_weights("chatbotmodel.h5")
+print("Saved model from disk")
 
 
 def bag_of_words(s, words):
@@ -131,7 +134,7 @@ def chatWithBot(inputText):
                 responses = tg['responses']
 
         return random.choice(responses)
-        
+
     else:
         return "I didn't get that, try again"
 
