@@ -1,6 +1,7 @@
 import json
 import pickle
 import random
+
 import nltk
 import numpy
 from nltk.stem import LancasterStemmer
@@ -19,14 +20,12 @@ try:
     with open("chatbot.pickle", "rb") as file:
         words, labels, training, output = pickle.load(file)
 
-
+except:
     words = []
     labels = []
-#list of all of different patterns
     docs_x = []
-#list of tags
     docs_y = []
-except:
+
     for intent in data["intents"]:
         for pattern in intent["patterns"]:
             wrds = nltk.word_tokenize(pattern)
@@ -37,11 +36,9 @@ except:
         if intent["tag"] not in labels:
             labels.append(intent["tag"])
 
-    #
     words = [stemmer.stem(w.lower()) for w in words if w != "?"]
     words = sorted(list(set(words)))
 
-    #for sort lables
     labels = sorted(labels)
 
     training = []
@@ -72,7 +69,7 @@ except:
     with open("chatbot.pickle", "wb") as file:
         pickle.dump((words, labels, training, output), file)
 
-
+try:
     yaml_file = open('chatbotmodel.yaml', 'r')
     loaded_model_yaml = yaml_file.read()
     yaml_file.close()
@@ -80,7 +77,7 @@ except:
     myChatModel.load_weights("chatbotmodel.h5")
     print("Loaded model from disk")
 
-
+except:
     # Make our neural network
     myChatModel = Sequential()
     myChatModel.add(Dense(8, input_shape=[len(words)], activation='relu'))
@@ -90,7 +87,7 @@ except:
     myChatModel.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
     # train the model
-    myChatModel.fit(training, output, epochs=6000, batch_size=8)
+    myChatModel.fit(training, output, epochs=1000, batch_size=8)
 
     # serialize model to yaml and save it to disk
     model_yaml = myChatModel.to_yaml()
@@ -102,18 +99,18 @@ except:
     print("Saved model from disk")
 
 
-    def bag_of_words(s, words):
-        bag = [0 for _ in range(len(words))]
+def bag_of_words(s, words):
+    bag = [0 for _ in range(len(words))]
 
-        s_words = nltk.word_tokenize(s)
-        s_words = [stemmer.stem(word.lower()) for word in s_words]
+    s_words = nltk.word_tokenize(s)
+    s_words = [stemmer.stem(word.lower()) for word in s_words]
 
-        for se in s_words:
-            for i, w in enumerate(words):
-                if w == se:
-                    bag[i] = 1
+    for se in s_words:
+        for i, w in enumerate(words):
+            if w == se:
+                bag[i] = 1
 
-        return numpy.array(bag)
+    return numpy.array(bag)
 
 
 def chatWithBot(inputText):
@@ -134,7 +131,7 @@ def chatWithBot(inputText):
                 responses = tg['responses']
 
         return random.choice(responses)
-
+        
     else:
         return "I didn't get that, try again"
 
